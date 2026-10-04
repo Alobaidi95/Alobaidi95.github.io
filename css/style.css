@@ -12,7 +12,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
 body{background:var(--bg);color:var(--text);font-family:var(--mono);font-size:14px;line-height:1.7;overflow-x:hidden}
-img{max-width:100%;display:block}
+img{max-width:100%;height:auto;display:block}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:4px}
 
@@ -96,6 +96,8 @@ h2{font-family:var(--display);font-size:clamp(28px,4vw,42px);font-weight:800;col
 .hl b{display:block;font-family:var(--display);color:var(--green);font-size:15px;margin-bottom:4px}
 .hl span{font-size:12px;color:var(--text2)}
 .actions{display:flex;gap:10px;flex-wrap:wrap}
+.note{font-size:11px;color:var(--text3);margin-top:10px}
+.cs-list a{color:var(--green)}
 
 .flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:6px}
 .flow span{font-size:11px;padding:3px 8px;border-radius:4px;background:rgba(90,167,255,.1);border:1px solid rgba(90,167,255,.18);color:var(--blue);white-space:nowrap}
