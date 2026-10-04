@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Osamah Al Obaidi – Java Backend Developer</title>
+<meta name="description" content="Java backend developer in Chicago building secure REST APIs with Spring Boot, Spring Security, JWT and MySQL. See my projects, experience and live demos.">
+<meta property="og:title" content="Osamah Al Obaidi – Java Backend Developer">
+<meta property="og:description" content="Spring Boot, Spring Security, JWT, MySQL, React. Projects, experience and live demos.">
+<meta property="og:image" content="assets/images/ems-dashboard.webp">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<nav aria-label="Main">
+  <div class="nav-inner">
+    <a href="#top" class="logo">osamah<span>.java</span></a>
+    <div class="nav-links">
+      <a href="#projects">projects</a>
+      <a href="#experience">experience</a>
+      <a href="#skills">skills</a>
+      <a href="#about">about</a>
+      <a href="#contact">contact</a>
+      <a href="assets/resume.pdf" class="nav-resume" target="_blank" rel="noopener">resume ↓</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="badge">Open to backend roles · Chicago or remote</div>
+      <h1>
+        <span class="hi">// Hello, World! I'm</span>
+        Osamah Al<br><span class="accent">Obaidi</span>
+      </h1>
+      <p class="role">Java Backend Developer · Full-Stack when needed</p>
+      <p class="lead">
+        I build REST APIs and backend services with Spring Boot, Spring Security and MySQL.
+        Lately I've been taking projects all the way to production: React frontend, Docker,
+        CI/CD with GitHub Actions, and a live deployment you can log into.
+      </p>
+      <div class="cta">
+        <a href="#projects" class="btn primary">▶ View projects</a>
+        <a href="assets/resume.pdf" class="btn" target="_blank" rel="noopener">↓ Resume</a>
+        <a href="mailto:osamahalobaidi95@gmail.com" class="btn">✉ Email me</a>
+      </div>
+      <div class="socials">
+        <a href="https://github.com/Alobaidi95" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/osamah-al-obaidi95/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+
+    <div class="ide" aria-hidden="true">
+      <div class="ide-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="ide-file">Developer.java</span></div>
+<pre><span class="ln">1</span><span class="k">public class</span> <span class="n">Developer</span> {
+<span class="ln">2</span>
+<span class="ln">3</span>  <span class="k">String</span> name = <span class="s">"Osamah Al Obaidi"</span>;
+<span class="ln">4</span>  <span class="k">String</span> role = <span class="s">"Backend Developer"</span>;
+<span class="ln">5</span>  <span class="k">String</span> city = <span class="s">"Chicago, IL"</span>;
+<span class="ln">6</span>
+<span class="ln">7</span>  <span class="k">List</span>&lt;<span class="k">String</span>&gt; stack = List.of(
+<span class="ln">8</span>    <span class="s">"Spring Boot"</span>, <span class="s">"Spring Security"</span>,
+<span class="ln">9</span>    <span class="s">"JWT"</span>, <span class="s">"MySQL"</span>, <span class="s">"React"</span>, <span class="s">"Docker"</span>
+<span class="ln">10</span>  );
+<span class="ln">11</span>
+<span class="ln">12</span>  <span class="c">// studying for AWS DVA-C02</span>
+<span class="ln">13</span>  <span class="k">boolean</span> openToWork = <span class="v">true</span>;
+<span class="ln">14</span>}</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects">
+  <div class="wrap">
+    <div class="label">01 // Projects</div>
+    <h2>Things I've built</h2>
+    <p class="sub">My main project is live, so you can log in and click around instead of just reading about it.</p>
+
+    <article class="card featured reveal">
+      <div class="featured-grid">
+        <div class="featured-info">
+          <div class="tag-feat">★ Featured · Full-stack</div>
+          <h3>Employee Management System</h3>
+          <p>
+            A full-stack app for managing users, departments and tasks, with three roles
+            (Admin, Manager, Employee) that each see and do different things. I built the
+            Spring Boot backend and the React + TypeScript frontend myself, then containerized it,
+            set up CI/CD and deployed it.
+          </p>
+          <div class="pills">
+            <span class="pill g">Spring Boot</span><span class="pill g">Spring Security</span><span class="pill g">JWT</span>
+            <span class="pill o">MySQL</span><span class="pill o">JPA / Hibernate</span>
+            <span class="pill">React</span><span class="pill">TypeScript</span><span class="pill">MUI</span>
+            <span class="pill p">Docker</span><span class="pill p">GitHub Actions</span><span class="pill p">JUnit 5 · Mockito</span>
+          </div>
+          <div class="demo-creds">Try it: username <b>demo</b> · password <b>demo123</b></div>
+          <div class="actions">
+            <a class="btn primary sm" href="https://ems-portall.netlify.app" target="_blank" rel="noopener">▶ Live demo</a>
+            <a class="btn sm" href="projects/ems.html">How I built it →</a>
+            <a class="btn sm" href="https://github.com/Alobaidi95/employee-management-system" target="_blank" rel="noopener">↗ GitHub</a>
+          </div>
+        </div>
+
+        <div class="featured-shot">
+          <div class="shot-main">
+            <img id="shot-main" src="assets/images/ems-tasks.webp" alt="EMS tasks page with status badges and approve/reject actions" width="1400" height="1140">
+          </div>
+          <div class="thumbs" aria-label="EMS screenshots">
+            <button class="on" data-src="assets/images/ems-tasks.webp"><img src="assets/images/ems-tasks.webp" alt="Tasks page" loading="lazy"></button>
+            <button data-src="assets/images/ems-dashboard.webp"><img src="assets/images/ems-dashboard.webp" alt="Admin dashboard with task stats" loading="lazy"></button>
+            <button data-src="assets/images/ems-users.webp"><img src="assets/images/ems-users.webp" alt="Users directory with roles and departments" loading="lazy"></button>
+            <button data-src="assets/images/ems-departments.webp"><img src="assets/images/ems-departments.webp" alt="Departments page" loading="lazy"></button>
+            <button data-src="assets/images/ems-audit-log.webp"><img src="assets/images/ems-audit-log.webp" alt="Audit log of admin and manager actions" loading="lazy"></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlights">
+        <div class="hl"><b>RBAC at 2 layers</b><span>Endpoint rules in SecurityConfig, data rules in the service layer</span></div>
+        <div class="hl"><b>Task state machine</b><span>Assigned → Started → Under Review → Done, invalid moves blocked</span></div>
+        <div class="hl"><b>Audit logging</b><span>Every admin/manager action recorded with Spring AOP</span></div>
+        <div class="hl"><b>Tested + CI/CD</b><span>JUnit 5 and Mockito, run on every push by GitHub Actions</span></div>
+      </div>
+    </article>
+
+    <div class="projects-grid" id="projects-grid"></div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience">
+  <div class="wrap">
+    <div class="label">02 // Experience</div>
+    <h2>Where I've worked</h2>
+
+    <div class="timeline">
+      <article class="card job reveal">
+        <div class="when">Mar 2025 – Present<b>Remote</b></div>
+        <div>
+          <h3>Software Engineer</h3>
+          <div class="org">Muscat Solutions &amp; Systems Company</div>
+          <ul>
+            <li>Build and maintain Spring Boot backend services and REST APIs for database-driven web apps.</li>
+            <li>Designed APIs for authentication, user management and data processing.</li>
+            <li>Design MySQL schemas and tune SQL queries to keep features fast.</li>
+            <li>Work with a remote team through Git workflows and code reviews.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card job reveal">
+        <div class="when">Oct 2024 – Jan 2025<b>Remote</b></div>
+        <div>
+          <h3>Software Engineering Intern</h3>
+          <div class="org">Revature</div>
+          <ul>
+            <li>Built a Social Media Blog API in Spring Boot with registration, login and full CRUD on messages.</li>
+            <li>Used Spring Data JPA for persistence, and built a second version with Javalin and raw JDBC.</li>
+            <li>Worked in Agile sprints and wrote tests first (TDD).</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills">
+  <div class="wrap">
+    <div class="label">03 // Skills</div>
+    <h2>What I work with</h2>
+    <div class="skills-grid">
+      <div class="card skill reveal">
+        <h3>☕ Backend</h3>
+        <div class="pills"><span class="pill g">Java</span><span class="pill g">Spring Boot</span><span class="pill g">Spring Security</span><span class="pill g">JWT</span><span class="pill g">BCrypt</span><span class="pill">REST APIs</span><span class="pill">Javalin</span></div>
+      </div>
+      <div class="card skill reveal">
+        <h3>🗄 Data</h3>
+        <div class="pills"><span class="pill o">MySQL</span><span class="pill o">SQL</span><span class="pill o">JPA / Hibernate</span><span class="pill o">JDBC</span></div>
+      </div>
+      <div class="card skill reveal">
+        <h3>🖥 Frontend</h3>
+        <div class="pills"><span class="pill">React</span><span class="pill">TypeScript</span><span class="pill">Material UI</span><span class="pill">Axios</span><span class="pill">HTML / CSS</span></div>
+      </div>
+      <div class="card skill reveal">
+        <h3>🚀 DevOps &amp; Testing</h3>
+        <div class="pills"><span class="pill p">Docker</span><span class="pill p">GitHub Actions</span><span class="pill p">JUnit 5</span><span class="pill p">Mockito</span><span class="pill p">Render</span><span class="pill p">Netlify</span><span class="pill p">AWS (studying)</span></div>
+      </div>
+      <div class="card skill reveal">
+        <h3>🛠 Tools</h3>
+        <div class="pills"><span class="pill">Git</span><span class="pill">Maven</span><span class="pill">Postman</span><span class="pill">VS Code</span><span class="pill">Agile</span></div>
+      </div>
+      <div class="card skill reveal">
+        <h3>💬 Also</h3>
+        <div class="pills"><span class="pill">Python</span><span class="pill">C#</span><span class="pill">JavaScript</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap">
+    <div class="label">04 // About</div>
+    <h2>A bit about me</h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>
+          I'm a backend developer based in Chicago. I like the part of software most people never see:
+          how data is modeled, who's allowed to do what, and what happens when a request comes in that
+          shouldn't. Most of my work is in <strong>Java and Spring Boot</strong>.
+        </p>
+        <p>
+          Before computer science I studied process operations and maintenance in Oman, then moved
+          into software and finished my CS degree at Northeastern Illinois University. I still think
+          like a maintenance person: I care about things running reliably, not just running.
+        </p>
+        <p>
+          <strong>What I'm working toward:</strong> a backend role on a team where I can keep growing,
+          getting deeper with cloud (I'm studying for the AWS Developer Associate right now) and building
+          systems that real people depend on.
+        </p>
+        <div class="card edu">
+          <div>B.S. Computer Science — Northeastern Illinois University</div>
+          <small>Chicago, IL · May 2024</small>
+        </div>
+        <div class="card edu">
+          <div>AWS Certified Developer – Associate (DVA-C02)</div>
+          <small>In progress</small>
+        </div>
+      </div>
+
+      <div class="json reveal" aria-label="Quick facts">
+        <div class="jb">{</div>
+        <div class="in"><span class="jk">"name"</span>: <span class="js">"Osamah Al Obaidi"</span>,</div>
+        <div class="in"><span class="jk">"location"</span>: <span class="js">"Chicago, IL"</span>,</div>
+        <div class="in"><span class="jk">"workAuthorization"</span>: <span class="js">"US Citizen"</span>,</div>
+        <div class="in"><span class="jk">"currentRole"</span>: <span class="js">"Software Engineer"</span>,</div>
+        <div class="in"><span class="jk">"lookingFor"</span>: [</div>
+        <div class="in2"><span class="js">"Java Backend Developer"</span>,</div>
+        <div class="in2"><span class="js">"Software Engineer"</span></div>
+        <div class="in">],</div>
+        <div class="in"><span class="jk">"openToRemote"</span>: <span class="jb">true</span>,</div>
+        <div class="in"><span class="jk">"openToHybrid"</span>: <span class="jb">true</span></div>
+        <div class="jb">}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="wrap">
+    <div class="card contact reveal">
+      <div class="label">05 // Contact</div>
+      <h2>Let's talk</h2>
+      <p class="sub">If you're hiring for a backend role or want to talk about something I built, email is the fastest way to reach me.</p>
+      <div class="cta">
+        <a href="mailto:osamahalobaidi95@gmail.com" class="btn primary">✉ osamahalobaidi95@gmail.com</a>
+        <a href="https://www.linkedin.com/in/osamah-al-obaidi95/" class="btn" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://github.com/Alobaidi95" class="btn" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="assets/resume.pdf" class="btn" target="_blank" rel="noopener">↓ Resume</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">Osamah Al Obaidi · <span class="year">2026</span> · Built with plain <span>HTML, CSS &amp; JS</span></div>
+</footer>
+
+<script src="js/projects.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employee Management System – Osamah Al Obaidi</title>
+<meta name="description" content="How I designed and built a full-stack employee management system with Spring Boot, Spring Security, JWT, MySQL and React, then deployed it with Docker and GitHub Actions.">
+<meta property="og:title" content="Employee Management System – case study">
+<meta property="og:image" content="../assets/images/ems-tasks.webp">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<nav aria-label="Main">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">osamah<span>.java</span></a>
+    <div class="nav-links">
+      <a href="../index.html#projects">projects</a>
+      <a href="../index.html#experience">experience</a>
+      <a href="../index.html#contact">contact</a>
+      <a href="../assets/resume.pdf" class="nav-resume" target="_blank" rel="noopener">resume ↓</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+<div class="wrap">
+
+  <header class="cs-hero">
+    <a href="../index.html#projects" class="back">← Back to projects</a>
+    <div class="label">Case study</div>
+    <h1>Employee Management System</h1>
+    <p class="lead">
+      A full-stack app where admins, managers and employees manage users, departments and tasks.
+      I designed and built it end to end, from the database schema and security layer to the React
+      frontend, Docker image, CI pipeline and production deployment.
+    </p>
+    <div class="demo-creds">Live demo login: username <b>demo</b> · password <b>demo123</b></div>
+    <div class="actions">
+      <a class="btn primary sm" href="https://ems-portall.netlify.app" target="_blank" rel="noopener">▶ Open live demo</a>
+      <a class="btn sm" href="https://github.com/Alobaidi95/employee-management-system" target="_blank" rel="noopener">↗ Source on GitHub</a>
+    </div>
+  </header>
+
+  <section class="cs-section reveal">
+    <div class="label">The problem</div>
+    <h2>Who can do what, and what happened</h2>
+    <p>
+      Most CRUD demos let anyone do anything. I wanted something closer to a real internal tool, where
+      permissions actually matter: an employee should only see their own tasks, a manager should only
+      manage their own department, and there should be a record of every change that matters.
+    </p>
+    <p>
+      So the goal wasn't just "build an app with login." It was to get the access rules, the task
+      workflow and the audit trail right, and then ship it somewhere people can actually use it.
+    </p>
+  </section>
+
+  <section class="cs-section reveal">
+    <div class="label">Architecture</div>
+    <h2>How it fits together</h2>
+    <div class="arch">
+      <div><b>React + TypeScript</b>MUI frontend on Netlify. Axios sends the JWT on each request.</div>
+      <div><b>JWT filter</b>Custom filter validates the token and loads the user before anything else runs.</div>
+      <div><b>Controllers</b>Endpoint access by role, configured in <code>SecurityConfig</code>.</div>
+      <div><b>Services</b>Business rules, data-level access checks, state machine, audit logging.</div>
+      <div><b>MySQL</b>JPA / Hibernate repositories. Hosted on Aiven.</div>
+    </div>
+    <p style="margin-top:18px">
+      The backend runs in Docker on Render. GitHub Actions builds and tests every push, and secrets
+      come from environment variables, never the repo.
+    </p>
+  </section>
+
+  <section class="cs-section reveal">
+    <div class="label">Key decisions</div>
+    <h2>The parts I'm most proud of</h2>
+    <div class="decisions">
+      <div class="card decision">
+        <h3>Access control in two layers</h3>
+        <p>
+          <code>SecurityConfig</code> answers "can this role call this endpoint?" The service layer answers
+          "can this user touch this specific record?" A manager can call the update-task endpoint, but the
+          service still checks that the task belongs to their department. Keeping these separate means one
+          missed rule doesn't open everything up.
+        </p>
+      </div>
+      <div class="card decision">
+        <h3>Tasks follow a state machine</h3>
+        <p>
+          Tasks move through fixed states, and the service rejects anything that skips a step or goes
+          backwards incorrectly. An employee can't mark their own task as done; it has to go through review.
+        </p>
+        <div class="states">
+          <span class="state st-a">ASSIGNED</span><i>→</i>
+          <span class="state st-s">STARTED</span><i>→</i>
+          <span class="state st-r">UNDER_REVIEW</span><i>→</i>
+          <span class="state st-d">DONE</span>
+        </div>
+      </div>
+      <div class="card decision">
+        <h3>Audit log with Spring AOP</h3>
+        <p>
+          Instead of adding logging calls inside every service method, an aspect records admin and manager
+          actions (who, what, which record, when). The business code stays clean, and new actions get
+          logged without remembering to add anything.
+        </p>
+      </div>
+      <div class="card decision">
+        <h3>Guard rails on department transfers</h3>
+        <p>
+          You can't move an employee to another department while they still have active tasks. Otherwise their
+          old manager loses visibility of work that's still in progress.
+        </p>
+      </div>
+      <div class="card decision">
+        <h3>JWT auth from scratch</h3>
+        <p>
+          I wrote the filter, <code>UserDetailsService</code> and token utility myself instead of copying a
+          starter, so I understand every step from login to authorized request. Passwords are hashed with BCrypt,
+          and users can change their own password or have an admin reset it.
+        </p>
+      </div>
+      <div class="card decision">
+        <h3>Tests where the rules live</h3>
+        <p>
+          JUnit 5 and Mockito tests cover the service-layer business rules and role-based endpoint access,
+          including failure paths like invalid state changes and forbidden requests. CI runs them on every push.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section reveal">
+    <div class="label">Screens</div>
+    <h2>What it looks like</h2>
+    <div class="gallery">
+      <figure><img src="../assets/images/ems-tasks.webp" alt="Tasks page with status badges and approve/reject buttons" loading="lazy" width="1400" height="1140"><figcaption>Tasks: a manager approving or rejecting work under review</figcaption></figure>
+      <figure><img src="../assets/images/ems-audit-log.webp" alt="Audit log table" loading="lazy" width="1400" height="1140"><figcaption>Audit log: every admin and manager action</figcaption></figure>
+      <figure><img src="../assets/images/ems-users.webp" alt="Users directory" loading="lazy" width="1400" height="1140"><figcaption>Users with roles and departments</figcaption></figure>
+      <figure><img src="../assets/images/ems-dashboard.webp" alt="Admin dashboard" loading="lazy" width="1400" height="1140"><figcaption>Dashboard with task status counts</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="cs-section reveal">
+    <div class="label">Deployment</div>
+    <h2>Getting it live</h2>
+    <ul class="cs-list">
+      <li>Backend packaged as a Docker image and deployed on Render.</li>
+      <li>MySQL hosted on Aiven, connected through environment-based config.</li>
+      <li>Frontend on Netlify with SPA routing so deep links don't 404.</li>
+      <li>CORS locked to the frontend's domain.</li>
+      <li>GitHub Actions builds and runs the test suite on every push.</li>
+    </ul>
+  </section>
+
+  <section class="cs-section reveal">
+    <div class="label">Next</div>
+    <h2>What I'd add next</h2>
+    <ul class="cs-list">
+      <li>Move hosting to AWS (EC2 or ECS + RDS) as I finish the Developer Associate cert.</li>
+      <li>Refresh tokens so sessions can stay short without logging people out constantly.</li>
+      <li>Swagger / OpenAPI docs so the API can be explored without the frontend.</li>
+    </ul>
+  </section>
+
+  <section class="cs-section" style="text-align:center">
+    <a href="../index.html#projects" class="btn">← Back to all projects</a>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">Osamah Al Obaidi · <span class="year">2026</span></div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
